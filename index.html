@@ -21,7 +21,7 @@
                 </h2>
                 <br>
                 <p>Base Meal Price: $
-                    <input type="number" ng-model="mealPrice" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/"/></p>
+                    <input type="number" ng-model="mealPrice" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/"/ ></p>
                 <p>Tax Rate: %
                     <input type="number" ng-model="taxRate" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/"/></p>
                 <p>Tip Percentage: %
@@ -30,7 +30,8 @@
 
                 <!-- Submit -->
                 <input type="submit" />
-                <input type="button" value="Cancel" />
+                <input type="button" value="Clear Entries" ng-click="clearForm()"/>
+                <input type="button" value="New Server" ng-click="resetForm()"/>
 
                 <!-- Form Validation -->
                 <div ng-if="formInvalid" ng-messages="mealForm.$error">

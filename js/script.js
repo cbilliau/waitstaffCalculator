@@ -14,6 +14,7 @@ angular.module('calcApp', ['ngMessages'])
                 $scope.earningsMealCount++;
 								$scope.earningsTipTotal += tips;
 								$scope.avgTipPerMeal = $scope.earningsTipTotal / $scope.earningsMealCount;
+								$scope.clearForm();
             } else {
                 $scope.formInvalid = true;
             }
@@ -28,6 +29,18 @@ angular.module('calcApp', ['ngMessages'])
             return tips;
         };
 
+				// functions
+				$scope.clearForm = function(){
+					$scope.mealPrice = null;
+					$scope.taxRate = null;
+					$scope.tipPerc = null;
+				}
 
-
+				$scope.resetForm = function(){
+					$scope.clearForm();
+					$scope.tips = 0;
+					$scope.earningsTipTotal = 0;
+	        $scope.earningsMealCount = 0;
+	        $scope.avgTipPerMeal = 0;
+				};
     }]);
