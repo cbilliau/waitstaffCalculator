@@ -27,6 +27,7 @@
                 <p>Tip Percentage: %
                     <input type="number" ng-model="tipPerc" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/"/></p>
                 <br/>
+
                 <!-- Submit -->
                 <input type="submit" />
                 <input type="button" value="Cancel" />
@@ -34,7 +35,7 @@
                 <!-- Form Validation -->
                 <div ng-if="formInvalid" ng-messages="mealForm.$error">
                     <span class="error" ng-message="required">All fields are required!</span>
-                    <span class="error" ng-message="pattern">Field requires a number!</span>
+                    <span class="error" ng-message="pattern">All fields require a positive number!</span>
                 </div>
             </form>
 
@@ -44,10 +45,13 @@
                         <u>Customer Charges</u>
                     </h2>
                     <p>Subtotal:
+                      {{ subTotal(mealPrice, taxRate)}}
                     </p>
                     <p>Tip:
+                      {{ tipTotal(mealPrice, tipPerc)}}
                     </p>
                     <p>Total:
+                      {{ total(subAmmount, tipAmmount) }}
                     </p>
                 </div>
 
