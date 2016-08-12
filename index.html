@@ -1,58 +1,69 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="calcApp">
-<head>
-	<link rel="stylesheet" type="text/css" href="styles/styles.css">
-	<script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-messages.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>
-	<meta charset="UTF-8">
-	<title>Waitstaff Calculator</title>
-</head>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+        <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-messages.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <meta charset="UTF-8">
+        <title>Waitstaff Calculator</title>
+    </head>
+    <body ng-controller="RootCtrl as vm">
+        <div class="container">
 
-<body ng-controller="RootCtrl as vm">
-	<div class="container">
+            <div class="title">
+                <h1>Waitstaff Calculator</h1>
+            </div>
 
-		<div class="title">
-			<h1>Waitstaff Calculator</h1>
-		</div>
+            <form class="details" name="mealForm" novalidate ng-submit="submit()">
+                <h2>
+                    <u>Enter the Meal Details</u>
+                </h2>
+                <br>
+                <p>Base Meal Price: $
+                    <input type="number" ng-model="mealPrice" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/"/></p>
+                <p>Tax Rate: %
+                    <input type="number" ng-model="taxRate" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/"/></p>
+                <p>Tip Percentage: %
+                    <input type="number" ng-model="tipPerc" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/"/></p>
+                <br/>
+                <!-- Submit -->
+                <input type="submit" />
+                <input type="button" value="Cancel" />
 
-		<form class="details" name="mealForm" ng-submit="submit()">
-			<h2><u>Enter the Meal Details</u></h2>
-			<br>
-			<p>Base Meal Price: $ <input type="number" ng-model="mealPrice" required ng-pattern="/^\d+$/" /></p>
-			<p>Tax Rate: % <input type="number" ng-model="taxRate" required ng-pattern="/^\d+$/" /></p>
-			<p>Tip Percentage: % <input type="number" ng-model="tipPerc" required ng-pattern="/^\d+$/" /></p>
-			<br />
+                <!-- Form Validation -->
+                <div ng-if="formInvalid" ng-messages="mealForm.$error">
+                    <span class="error" ng-message="required">All fields are required!</span>
+                    <span class="error" ng-message="pattern">Field requires a number!</span>
+                </div>
+            </form>
 
-			<!-- Submit -->
-			<div ng-if="mealForm.$valid">
-				<button type="button" name="button">Submit</button>
-				<button type="button" name="button">Cancel</button>
-			</div>
+            <div class="bigBox">
+                <div class="charges">
+                    <h2>
+                        <u>Customer Charges</u>
+                    </h2>
+                    <p>Subtotal:
+                    </p>
+                    <p>Tip:
+                    </p>
+                    <p>Total:
+                    </p>
+                </div>
 
-			<!-- Form Validation -->
-			<div ng-if="mealForm.$invalid" ng-messages="mealForm.$error">
-				<span class="error" ng-message="required">All fields are required!</span>
-				<span class="error" ng-message="pattern">Field requires a number!</span>
-			</div>
-		</form>
+                <div class="earnings">
+                    <h2>
+                        <u>My Earnings Info</u>
+                    </h2>
+                    <p>Tip Total:
+                    </p>
+                    <p>Meal Count:
+                    </p>
+                    <p>Average Tip Per Meal:
+                    </p>
+                </div>
+            </div>
 
-		<div class="bigBox">
-			<div class="charges">
-			<h2><u>Customer Charges</u></h2>
-			<p>Subtotal: </p>
-			<p>Tip: </p>
-			<p>Total: </p>
-		</div>
-
-			<div class="earnings">
-			<h2><u>My Earnings Info</u></h2>
-			<p>Tip Total: </p>
-			<p>Meal Count: </p>
-			<p>Average Tip Per Meal: </p>
-		</div>
-		</div>
-
-	</div>
-</body>
+        </div>
+    </body>
 </html>
