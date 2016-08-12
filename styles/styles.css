@@ -1,0 +1,54 @@
+.container {
+    margin: 20px 20px;
+    height: auto;
+    width: auto;
+    max-width: auto;
+    border: red 1px solid;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+}
+
+.title {
+    margin: 20px auto;
+    height: 40px;
+    width: 400px;
+    /*padding: 0 0 0 0;*/
+    background-color: #fff;
+    /*border: red 1px solid;*/
+    text-align: center;
+		display: block;
+}
+
+.title h1 {
+    margin: 2px 2px;
+}
+.details	{
+    margin: 20px 20px;
+		padding: 0px 10px;
+    height: 300px;
+    width: 250px;
+    background-color: #fff;
+    border: black 1px solid;
+    display: inline-block;
+}
+
+.charges	{
+    margin: 20px 20px;
+		padding: 0px 10px;
+    height: 200px;
+    width: 250px;
+    background-color: #fff;
+    border: black 1px solid;
+    display: inline-block;
+}
+
+.earnings	{
+    margin: 20px 20px;
+		padding: 0px 10px;
+    height: 200px;
+    width: 250px;
+    background-color: #fff;
+    border: black 1px solid;
+    display: inline-block;
+}

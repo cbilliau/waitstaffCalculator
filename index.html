@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
 	<script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-messages.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
@@ -12,14 +12,38 @@
 <body>
 	<div class="container">
 
-		<div class="title"></div>
+		<div class="title">
+			<h1>Waitstaff Calculator</h1>
+		</div>
 
-		<div class="details"></div>
+		<div class="details">
+			<h2>Enter the Meal Details</h2>
+			<hr>
+			<p>Base Meal Price: $</p>
+			<p>Tax Rate</p>
+			<p>Tip Percentage</p>
+			<br />
+			<button type="button" name="button">Submit</button>
+			<button type="button" name="button">Cancel</button>
+		</div>
 
-		<div class="charges"></div>
+		<div class="charges">
+			<h2>Customer Charges</h2>
+			<hr>
+			<p>Subtotal</p>
+			<p>Tip</p>
+			<hr>
+			<p>Total</p>
+		</div>
 
-		<div class="earnings"></div>
-		
+		<div class="earnings">
+			<h2>My Earnings Info</h2>
+			<hr>
+			<p>Tip Total</p>
+			<p>Meal Count</p>
+			<p>Average Tip Per Meal</p>
+		</div>
+
 	</div>
 </body>
 </html>
