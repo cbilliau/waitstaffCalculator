@@ -1,16 +1,20 @@
 angular.module('calcApp', ['ngMessages', 'ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/', {
-        templateUrl: 'index.html',
-        controller: 'HomeCtrl'
+        templateUrl: 'home.html',
+        controller: 'RootCtrl'
+      })
+      .when('/home', {
+        templateUrl: 'home.html',
+        controller: 'RootCtrl'
       })
       .when('/new_meal', {
         templateUrl: 'new_meal.html',
-        controller: 'NewMealCtrl'
+        controller: 'RootCtrl'
       })
       .when('/my_earnings', {
-        templateUrl: 'my_earnings',
-        controller: 'MyEarningsCtrl'
+        templateUrl: 'my_earnings.html',
+        controller: 'RootCtrl'
       })
       .when('/error', {
         template: '<p>Error - Page Not Found</p>'
@@ -18,14 +22,12 @@ angular.module('calcApp', ['ngMessages', 'ngRoute'])
       .otherwise('/error');
     }])
     .controller('RootCtrl', ['$scope', function($scope) {
-
         //  Set $scope var
         $scope.formInvalid = false;
 				$scope.tips = 0;
 				$scope.earningsTipTotal = 0;
         $scope.earningsMealCount = 0;
         $scope.avgTipPerMeal = 0;
-
         //  submit function
         $scope.submit = function() {
             if ($scope.mealForm.$valid) {
