@@ -1,0 +1,40 @@
+<form class="details" name="mealForm" novalidate ng-submit="submit()">
+    <h2>
+        <u>Enter the Meal Details</u>
+    </h2>
+    <br>
+    <p>Base Meal Price: $
+        <input type="number" ng-model="mealPrice" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/"/></p>
+    <p>Tax Rate: %
+        <input type="number" ng-model="taxRate" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/"/></p>
+    <p>Tip Percentage: %
+        <input type="number" ng-model="tipPerc" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/"/></p>
+    <br/>
+
+    <!-- Submit -->
+    <input type="submit"/>
+    <input type="button" value="Clear Entries" ng-click="clearForm()"/>
+    <input type="button" value="New Server" ng-click="resetForm()"/>
+
+    <!-- Form Validation -->
+    <div ng-if="formInvalid" ng-messages="mealForm.$error">
+        <span class="error" ng-message="required">All fields are required!</span>
+        <span class="error" ng-message="pattern">All fields require a positive number!</span>
+    </div>
+</form>
+
+<div class="bigBox">
+    <div class="charges">
+        <h2>
+            <u>Customer Charges</u>
+        </h2>
+        <p>Subtotal:
+            {{ subTotal(mealPrice, taxRate) | currency:"$" }}
+        </p>
+        <p>Tip:
+            {{ tipTotal(mealPrice, tipPerc) | currency:"$" }}
+        </p>
+        <p>Total:
+            {{ subTotal(mealPrice, taxRate) + tipTotal(mealPrice, tipPerc) | currency:"$" }}
+        </p>
+    </div>

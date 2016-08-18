@@ -1,4 +1,22 @@
-angular.module('calcApp', ['ngMessages'])
+angular.module('calcApp', ['ngMessages', 'ngRoute'])
+    .config(['$routeProvider', function($routeProvider) {
+      $routeProvider.when('/', {
+        templateUrl: 'index.html',
+        controller: 'HomeCtrl'
+      })
+      .when('/new_meal', {
+        templateUrl: 'new_meal.html',
+        controller: 'NewMealCtrl'
+      })
+      .when('/my_earnings', {
+        templateUrl: 'my_earnings',
+        controller: 'MyEarningsCtrl'
+      })
+      .when('/error', {
+        template: '<p>Error - Page Not Found</p>'
+      })
+      .otherwise('/error');
+    }])
     .controller('RootCtrl', ['$scope', function($scope) {
 
         //  Set $scope var
