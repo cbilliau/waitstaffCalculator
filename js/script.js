@@ -21,7 +21,7 @@ angular.module('calcApp', ['ngMessages', 'ngRoute'])
       })
       .otherwise('/error');
     }])
-    .controller('RootCtrl', ['$scope', function($scope) {
+    .controller('RootCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
         //  Set $scope var
         $scope.formInvalid = false;
 				$scope.tips = 0;
