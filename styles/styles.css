@@ -1,56 +1,71 @@
+body  {
+    font-family: sans-serif;
+}
 .container {
     margin: auto;
     height: auto;
     width: 700px;
-    /*border: red 1px solid;*/
 }
-
 .title {
     margin: 20px auto;
     height: 40px;
     width: 400px;
     background-color: #fff;
-    /*border: red 1px solid;*/
     text-align: center;
 		display: block;
 }
-
 .title h1 {
     margin: 2px 2px;
+}
+.menu  {
+  text-align: center;
 }
 .details	{
     margin: 20px 0px;
 		padding: 0px 10px;
     height: 350px;
     width: 300px;
-    background-color: #fff;
     border: black 1px solid;
     float: left;
 }
-
 .bigBox	{
     margin: 20px 20px;
-		/*padding: 0px 10px;*/
     height: 300px;
     width: 300px;
     float: right;
 }
-
 .charges	{
     margin: 0 0 10px 0;
 		padding: 0px 10px;
     height: auto;
-    width: 100%;
+    width: auto;
     background-color: #fff;
     border: black 1px solid;
     display: block;
-}
 
+}
 .earnings	{
-		padding: 0px 10px;
-    height: auto;
-    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+		padding: 10px 10px;
+    height: 10em;
+    width: 50%;
     background-color: #fff;
     border: black 1px solid;
     display: block;
 }
+.animate-view-container { position:relative; min-height: 100%;}
+.animate-view.ng-enter,
+.animate-view.ng-leave {
+    transition: .2s linear all;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:#eee;
+}
+.animate-view.ng-enter { opacity:0; z-index:100; }
+.animate-view.ng-enter.ng-enter-active { opacity:1; }
+.animate-view.ng-leave { opacity:1; z-index:99; }
+.animate-view.ng-leave.ng-leave-active { opacity:0; }

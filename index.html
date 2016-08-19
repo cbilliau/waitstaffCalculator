@@ -5,6 +5,7 @@
         <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-messages.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-route.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-animate.js" charset="utf-8"></script>
         <script type="text/javascript" src="js/script.js"></script>
         <meta charset="UTF-8">
         <title>Waitstaff Calculator</title>
@@ -15,11 +16,19 @@
                 <h1>Waitstaff Calculator</h1>
             </div>
             <div class="menu">
-                <a href="#/home">Home</a><span> | </span>
-                <a href="#/new_meal">New Meal</a><span> | </span>
+                <a href="#/home">Home</a>
+                <span>
+                    |
+                </span>
+                <a href="#/new_meal">New Meal</a>
+                <span>
+                    |
+                </span>
                 <a href="#/my_earnings">My Earnings</a>
             </div>
-            <div ng-view></div>
+            <div class="animate-view-container">
+                <div ng-view class="animate-view"></div>
+            </div>
         </div>
     </body>
 </html>

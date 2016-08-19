@@ -1,4 +1,8 @@
-angular.module('calcApp', ['ngMessages', 'ngRoute'])
+angular.module('calcApp', [
+    'ngMessages',
+    'ngRoute',
+    'ngAnimate'
+    ])
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/', {
         templateUrl: 'home.html',
