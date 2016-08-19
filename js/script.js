@@ -25,46 +25,47 @@ angular.module('calcApp', [
       })
       .otherwise('/error');
     }])
-    .controller('RootCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
-        //  Set $scope var
-        $scope.formInvalid = false;
-				$scope.tips = 0;
-				$scope.earningsTipTotal = 0;
-        $scope.earningsMealCount = 0;
-        $scope.avgTipPerMeal = 0;
+    .controller('RootCtrl', ['$scope','$rootScope', function($scope, $rootScope) {
+
+        //  Set $rootScope var
+        $rootScope.formInvalid = $rootScope.formInvalid || false;
+				$rootScope.tips = $rootScope.tips || 0;
+				$rootScope.earningsTipTotal = $rootScope.earningsTipTotal || 0;
+        $rootScope.earningsMealCount = $rootScope.earningsMealCount|| 0;
+        $rootScope.avgTipPerMeal = $rootScope.avgTipPerMeal || 0;
         //  submit function
-        $scope.submit = function() {
+        $rootScope.submit = function() {
             if ($scope.mealForm.$valid) {
-                $scope.earningsMealCount++;
-								$scope.earningsTipTotal += tips;
-								$scope.avgTipPerMeal = $scope.earningsTipTotal / $scope.earningsMealCount;
-								$scope.clearForm();
+                $rootScope.earningsMealCount++;
+								$rootScope.earningsTipTotal += tips;
+								$rootScope.avgTipPerMeal = $rootScope.earningsTipTotal / $rootScope.earningsMealCount;
+								$rootScope.clearForm();
             } else {
-                $scope.formInvalid = true;
+                $rootScope.formInvalid = true;
             }
         };
 
 				//	calc functions
-        $scope.subTotal = function(mealPrice, taxRate) {
+        $rootScope.subTotal = function(mealPrice, taxRate) {
             return mealPrice + (mealPrice * (taxRate / 100));
         };
-        $scope.tipTotal = function(sub, tipPerc) {
+        $rootScope.tipTotal = function(sub, tipPerc) {
 						tips = sub * (tipPerc / 100);
             return tips;
         };
 
 				// functions
-				$scope.clearForm = function(){
-					$scope.mealPrice = null;
-					$scope.taxRate = null;
-					$scope.tipPerc = null;
+				$rootScope.clearForm = function(){
+					$rootScope.mealPrice = null;
+					$rootScope.taxRate = null;
+					$rootScope.tipPerc = null;
 				}
 
-				$scope.resetForm = function(){
-					$scope.clearForm();
-					$scope.tips = 0;
-					$scope.earningsTipTotal = 0;
-	        $scope.earningsMealCount = 0;
-	        $scope.avgTipPerMeal = 0;
+				$rootScope.resetForm = function(){
+					$rootScope.clearForm();
+					$rootScope.tips = 0;
+					$rootScope.earningsTipTotal = 0;
+	        $rootScope.earningsMealCount = 0;
+	        $rootScope.avgTipPerMeal = 0;
 				};
     }]);
